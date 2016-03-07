@@ -1,0 +1,13 @@
+.DS_Store
+
+/.bundle
+/log/*.log
+/node_modules
+/tmp
+/vendor/bundle
+database.yml
+vendor/components
+public/vendor
+log
+public/application.css
+public/application.js

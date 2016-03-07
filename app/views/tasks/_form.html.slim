@@ -1,0 +1,27 @@
+validator name="validator"
+  div v-for="error in errors"
+    p v-for="(key, text) in error"
+      | {{key}} :  {{text}}
+  .field
+    label
+      | title
+    br
+    input type="text" name="task[title]" v-model="title" v-validate:title="{required: true, maxlength: #{Task::MAX_LENGTHS[:title]}}"
+    .error v-if="$validator.title.dirty"
+      span v-if="$validator.title.minlength"
+        | too short your title.
+      span v-if="$validator.title.maxlength"
+        | too long your title.
+  .field
+    label
+      | content
+    br
+    textarea name="task[content]" v-model="content" v-validate:content="{required: true, maxlength: #{Task::MAX_LENGTHS[:content]}}"
+    .error v-if="$validator.content.dirty"
+      p v-if="$validator.content.required"
+        | require content
+  p.error v-if="$validator.invalid && $validator.dirty"
+    | invalid params
+  .actions
+    input type="submit" :disabled="$validator.invalid && $validator.dirty || loading"
+= link_to 'Back', tasks_path

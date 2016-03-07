@@ -1,0 +1,5 @@
+#tasks-edit next-url=tasks_path url=task_path(@task)
+  h1
+    | Editing Task
+  form @submit.prevent="onSubmit" action=task_path(@task) method="patch"
+    = render 'form'

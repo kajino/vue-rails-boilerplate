@@ -1,0 +1,18 @@
+{
+  "name": "vue-rails-boilerplate",
+  "description": "vue-rails-boilerplate",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "vue": "~1.0.17",
+    "jquery": "~2.1.4",
+    "vue-validator": "2.0.0-alpha.17",
+    "lodash": "~4.6.1",
+    "jquery-ujs": "~1.2.0",
+    "bootstrap": "~3.3.6"
+  }
+}

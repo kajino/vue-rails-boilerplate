@@ -1,0 +1,5 @@
+#tasks-new next-url=tasks_path
+  h1
+    | New Task
+  form @submit.prevent="onSubmit" action=tasks_path method="post"
+    = render 'form'

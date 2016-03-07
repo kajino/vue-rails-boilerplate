@@ -1,0 +1,31 @@
+#tasks-index
+  h1
+    | Tasks
+  table.table
+    thead
+      tr
+        th
+          | Title
+        th[colspan="3"]
+    tbody
+      tr v-for="(index, task) in tasks" :class="{active: task.active}"
+        td @click="onClickTitle(index)" = "{{task.title}}"
+        td 
+          a href="/tasks/{{task.id}}" @click.prevent="onClickShow(task)" = "Show"
+        td = link_to 'Edit', "/tasks/{{task.id}}/edit"
+        td
+          a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/tasks/{{task.id}}"
+            | Destroy
+  task-preview v-if="modalTask" :task="modalTask"
+
+  br
+  = link_to 'New Task', new_task_path
+
+script id="tasks-preview-template" type="script/template"
+  .task-preview
+    h2
+      | preview
+    p
+      | title : {{task.title}}
+    p
+      | content : {{task.content}}
