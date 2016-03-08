@@ -8,12 +8,8 @@ module.exports = new Vue
       url: "/tasks"
       dataType: 'json'
     .then (res) =>
-      @tasks = _.map res, (task)->
-        task.active = false
-        task
+      @tasks = res
   methods:
-    onClickTitle : (index)->
-      @tasks[index].active = !@tasks[index].active
     onClickShow : (task)->
       @modalTask = task
   components:

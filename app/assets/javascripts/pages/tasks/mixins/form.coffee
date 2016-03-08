@@ -7,7 +7,6 @@ module.exports =
     errors: {}
   methods:
     onSubmit: (e) ->
-      e.preventDefault()
       @loading = true
       $form = $(@.$el).find("form")
       fd = new FormData($form[0])
